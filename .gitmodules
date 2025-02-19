@@ -1,0 +1,3 @@
+[submodule "unity/UnityGaussianSplatting"]
+	path = unity/UnityGaussianSplatting
+	url = git@github.com:aras-p/UnityGaussianSplatting.git

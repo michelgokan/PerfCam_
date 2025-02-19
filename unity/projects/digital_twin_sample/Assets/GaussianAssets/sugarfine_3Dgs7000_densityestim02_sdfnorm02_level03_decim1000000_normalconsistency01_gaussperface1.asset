@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: sugarfine_3Dgs7000_densityestim02_sdfnorm02_level03_decim1000000_normalconsistency01_gaussperface1
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20231020
+  m_SplatCount: 1475929
+  m_BoundsMin: {x: -12.072583, y: -4.8981113, z: -19.95412}
+  m_BoundsMax: {x: 18.774189, y: 5.648113, z: 19.184}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: 6101f84668895f7fcf60aac4e6974e95
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_PosData: {fileID: 4900000, guid: 695411886fee34856aaa0319dd9307a7, type: 3}
+  m_ColorData: {fileID: 4900000, guid: 0a247caf03d7f454483b6419fe43b354, type: 3}
+  m_OtherData: {fileID: 4900000, guid: 0a18b7c1fce4240fc97ffef4679274a6, type: 3}
+  m_SHData: {fileID: 4900000, guid: fcba06c5e35dd43e195f26f72365a4dd, type: 3}
+  m_ChunkData: {fileID: 0}
+  m_Cameras: []

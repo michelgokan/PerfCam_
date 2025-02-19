@@ -1,0 +1,227 @@
+{
+  "version": "1.0",
+  "inputs": [
+    {
+      "type": "InferenceImage",
+      "name": "image"
+    }
+  ],
+  "steps": [
+    {
+      "type": "roboflow_core/roboflow_object_detection_model@v1",
+      "name": "model",
+      "images": "$inputs.image",
+      "model_id": "perfcam/4"
+    },
+    {
+      "type": "roboflow_core/bounding_box_visualization@v1",
+      "name": "detection_visualization",
+      "image": "$inputs.image",
+      "predictions": "$steps.model.predictions"
+    },
+    {
+      "type": "roboflow_core/byte_tracker@v3",
+      "name": "byte_tracker",
+      "image": "$inputs.image",
+      "detections": "$steps.model.predictions"
+    },
+    {
+      "type": "roboflow_core/line_counter@v2",
+      "name": "camera_4_edge_1",
+      "image": "$inputs.image",
+      "detections": "$steps.byte_tracker_1.tracked_detections",
+      "line_segment": [
+        [
+          621,
+          674
+        ],
+        [
+          791,
+          628
+        ]
+      ]
+    },
+    {
+      "type": "roboflow_core/byte_tracker@v3",
+      "name": "byte_tracker_1",
+      "image": "$inputs.image",
+      "detections": "$steps.model.predictions"
+    },
+    {
+      "type": "roboflow_core/line_counter_visualization@v1",
+      "name": "line_counter_visualization_2",
+      "image": "$steps.line_counter_visualization_1.image",
+      "zone": [
+        [
+          621,
+          674
+        ],
+        [
+          791,
+          628
+        ]
+      ],
+      "count_in": "$steps.camera_4_edge_1.count_in",
+      "count_out": "$steps.camera_4_edge_1.count_out",
+      "thickness": 1
+    },
+    {
+      "type": "roboflow_core/line_counter@v2",
+      "name": "camera_4_edge_2_end",
+      "image": "$inputs.image",
+      "detections": "$steps.byte_tracker.new_instances",
+      "line_segment": [
+        [
+          1201,
+          439
+        ],
+        [
+          1290,
+          405
+        ]
+      ]
+    },
+    {
+      "type": "roboflow_core/line_counter_visualization@v1",
+      "name": "line_counter_visualization_1",
+      "image": "$steps.line_counter_visualization.image",
+      "zone": [
+        [
+          1201,
+          439
+        ],
+        [
+          1290,
+          405
+        ]
+      ],
+      "count_out": "$steps.camera_4_edge_2_end.count_out",
+      "thickness": 1,
+      "count_in": "$steps.camera_4_edge_2_end.count_in"
+    },
+    {
+      "type": "roboflow_core/line_counter@v2",
+      "name": "camera_4_edge_2_beginning",
+      "image": "$inputs.image",
+      "detections": "$steps.byte_tracker_2.tracked_detections",
+      "line_segment": [
+        [
+          1590,
+          537
+        ],
+        [
+          1642,
+          503
+        ]
+      ]
+    },
+    {
+      "type": "roboflow_core/byte_tracker@v3",
+      "name": "byte_tracker_2",
+      "image": "$inputs.image",
+      "detections": "$steps.model.predictions"
+    },
+    {
+      "type": "roboflow_core/line_counter_visualization@v1",
+      "name": "line_counter_visualization",
+      "image": "$steps.annotated_image.image",
+      "zone": [
+        [
+          1590,
+          537
+        ],
+        [
+          1642,
+          503
+        ]
+      ],
+      "count_in": "$steps.camera_4_edge_2_beginning.count_in",
+      "count_out": "$steps.camera_4_edge_2_beginning.count_out",
+      "thickness": 1
+    },
+    {
+      "type": "roboflow_core/property_definition@v1",
+      "name": "count_objects",
+      "data": "$steps.model.predictions",
+      "operations": [
+        {
+          "type": "SequenceLength"
+        }
+      ]
+    },
+    {
+      "type": "roboflow_core/label_visualization@v1",
+      "name": "annotated_image",
+      "image": "$steps.detection_visualization.image",
+      "predictions": "$steps.model.predictions"
+    }
+  ],
+  "outputs": [
+    {
+      "type": "JsonField",
+      "name": "output_image_old",
+      "coordinates_system": "own",
+      "selector": "$steps.annotated_image.image"
+    },
+    {
+      "type": "JsonField",
+      "name": "count_objects",
+      "coordinates_system": "own",
+      "selector": "$steps.count_objects.output"
+    },
+    {
+      "type": "JsonField",
+      "name": "predictions",
+      "coordinates_system": "own",
+      "selector": "$steps.model.predictions"
+    },
+    {
+      "type": "JsonField",
+      "name": "byte_tracker",
+      "coordinates_system": "own",
+      "selector": "$steps.byte_tracker.*"
+    },
+    {
+      "type": "JsonField",
+      "name": "camera_3_edge_2_beginning_counter",
+      "coordinates_system": "own",
+      "selector": "$steps.camera_4_edge_2_beginning.*"
+    },
+    {
+      "type": "JsonField",
+      "name": "byte_tracker_1",
+      "coordinates_system": "own",
+      "selector": "$steps.byte_tracker_1.*"
+    },
+    {
+      "type": "JsonField",
+      "name": "camera_3_edge_2_end_counter",
+      "coordinates_system": "own",
+      "selector": "$steps.camera_4_edge_2_end.*"
+    },
+    {
+      "type": "JsonField",
+      "name": "line_counter_visualization_1",
+      "coordinates_system": "own",
+      "selector": "$steps.line_counter_visualization_1.image"
+    },
+    {
+      "type": "JsonField",
+      "name": "byte_tracker_2",
+      "coordinates_system": "own",
+      "selector": "$steps.byte_tracker_2.*"
+    },
+    {
+      "type": "JsonField",
+      "name": "camera_3_edge_1_counter",
+      "coordinates_system": "own",
+      "selector": "$steps.camera_4_edge_1.*"
+    },
+    {
+      "type": "JsonField",
+      "name": "output_image",
+      "coordinates_system": "own",
+      "selector": "$steps.line_counter_visualization_2.image"
+    }
+  ]
+}
