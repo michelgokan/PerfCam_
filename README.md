@@ -5,8 +5,8 @@
 
 [Michel Gokan Khan](https://michelgokan.github.io/), [Renan Guarese](https://renghp.github.io/), [Fabian Johonsson](https://se.linkedin.com/in/fabianmartinjohnson), [Xi Vincent Wang](https://www.kth.se/profile/wangxi), [Anders Bergman](https://se.linkedin.com/in/anders-bergman-186203), [Benjamin Edvinsson](https://se.linkedin.com/in/benjamin-edvinsson-860ba968), [Mario Romero Vega](https://www.kth.se/profile/marior), [Jérémy Vachier](https://github.com/jvachier), [Jan Kronqvist](https://www.kth.se/profile/jankr)
 
-[[`Paper`](#)] [[`Dataset`](#)] [[
-`Project`](https://www.digitalfutures.kth.se/research/industrial-postdoc-projects/smart-smart-predictive-maintenance-for-the-pharmaceutical-industry/)] [[
+[[`Paper`](#)] [[`Dataset`](https://github.com/AstraZeneca/PerfCam-Dataset)] [[
+`Project`](https://www.digitalfutures.kth.se/project/smart-smart-predictive-maintenance-for-the-pharmaceutical-industry/)] [[
 `BibTeX`](#citing-smart)]
 
 Welcome to **PerfCam** Proof-of-Concept (PoC) repository, the official codebase accompanying the paper:
