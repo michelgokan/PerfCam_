@@ -30,7 +30,7 @@ This repository provides:
 5. [Unity Digital Twin](#unity-digital-twin)
 6. [Dataset](#dataset)
 7. [License](#license)
-8. [Contributors](#contributors)
+8. [Repository Contributors](#contributors)
 9. [Citation](#citation)
 
 ---
